@@ -194,3 +194,11 @@ exec subl3
 exec spotify
 exec skype
 exec libreoffice
+
+# Assigning specific workspaces to specific screens
+workspace $tag1 output LVDS1
+workspace $tag2 output HDMI1
+workspace $tag3 output HDMI1
+workspace $tag4 output HDMI1
+workspace $tag5 output HDMI1
+workspace $tag6 output HDMI1
