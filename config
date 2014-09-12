@@ -181,7 +181,6 @@ bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Sree
 
 # Assigning specific applications to specific workspaces
 assign [class="^URxvt$" instance="^weechat$"] $tag1
-assign [class="^Subl3$"] $tag3
 assign [class="^Spotify$"] $tag4
 assign [class="^Skype$"] $tag5
 assign [class="^libreoffice-writer$"] $tag6
