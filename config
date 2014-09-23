@@ -177,7 +177,6 @@ bar {
 for_window [class="Steam"] floating enable
 
 # Custom keybinds
-bindsym Print exec scrot '%Y-%m-%d-%T_$wx$h_scrot.png' -e 'mv $f ~/Pictures/Sreenshots/'
 
 # Assigning specific applications to specific workspaces
 assign [class="^URxvt$" instance="^weechat$"] $tag1
