@@ -23,16 +23,17 @@ setopt HIST_IGNORE_DUPS
 
 autoload -U colors && colors
 
+# Sourcing
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/desktop/zsh-git-prompt/zshrc.sh
+
 # Prompt
-PROMPT="%{$fg[green]%}%n%{$fg[white]%}@%{$fg[red]%}%M %{$fg[yellow]%}%~ %{$fg[white]%}%#%{$reset_color%} "
-RPROMPT="%{$fg[blue]%}%* %{$fg[white]%}[%{$fg[red]%}%?%{$fg[white]%}]%{$reset_color%}"
+PROMPT="%{$fg[green]%}%n%{$fg[white]%}@%{$fg[red]%}%M %{$fg[blue]%}%~ %{$fg[white]%} $(git_super_status) %# "
+RPROMPT="%{$fg[white]%}[%{$fg[red]%}%?%{$fg[white]%}]%{$reset_color%}"
 
 #Aliases
 alias xrhoff="xrandr --output HDMI1 --off"
 alias xrhon="xrandr --output HDMI1 --mode 1920x1080 --right-of LVDS1"
-
-# Sourcing
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Activating fish-like highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
