@@ -28,8 +28,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source ~/desktop/zsh-git-prompt/zshrc.sh
 
 # Prompt
-PROMPT="%{$fg[green]%}%n%{$fg[white]%}@%{$fg[red]%}%M %{$fg[blue]%}%~ %{$fg[white]%} $(git_super_status) %# "
-RPROMPT="%{$fg[white]%}[%{$fg[red]%}%?%{$fg[white]%}]%{$reset_color%}"
+#PROMPT="%{$fg[green]%}%n%{$fg[white]%}@%{$fg[red]%}%M %{$fg[blue]%}%~ %{$fg[white]%} $(git_super_status) %# "
+PROMPT='%{$fg[yellow]%}λ %{$fg[green]%}%c %{$fg[yellow]%}→ $(git_super_status)%{$reset_color%}'
+# RPROMPT="%{$fg[white]%}[%{$fg[red]%}%?%{$fg[white]%}]%{$reset_color%}"
 
 #Aliases
 alias xrhoff="xrandr --output HDMI1 --off"
@@ -37,3 +38,6 @@ alias xrhon="xrandr --output HDMI1 --mode 1920x1080 --right-of LVDS1"
 
 # Activating fish-like highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+
+# Exporting LANGUAGE variable
+export LANGUAGE=en_US.UTF-8
