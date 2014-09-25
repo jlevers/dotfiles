@@ -24,7 +24,6 @@ setopt HIST_IGNORE_DUPS
 autoload -U colors && colors
 
 # Sourcing
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/desktop/zsh-git-prompt/zshrc.sh
 
 # Prompt
@@ -33,9 +32,6 @@ PROMPT='%{$fg[yellow]%}λ %{$fg[green]%}%c %{$fg[yellow]%}→ $(git_super_status
 #Aliases
 alias xrhoff="xrandr --output HDMI1 --off"
 alias xrhon="xrandr --output HDMI1 --mode 1920x1080 --right-of LVDS1"
-
-# Activating fish-like highlighters
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
 
 # Exporting LANGUAGE variable
 export LANGUAGE=en_US.UTF-8
