@@ -8,7 +8,7 @@
 
 dir=~/desktop/dotfiles                    # dotfiles directory
 olddir=~/desktop/dotfiles_old             # old dotfiles backup directory
-files=".bash_profile .bashrc .fehbg .gitconfig .gtkrc-2.0 .i3status.conf .profile .xinitrc .Xresources .zshrc config weechat.conf xmonad.hs"    # list of files/folders to symlink in homedir
+files=".bash_profile .bashrc .fehbg .gitconfig .gtkrc-2.0 .i3status.conf .profile .xinitrc .Xresources .zshrc config weechat.conf xmonad.hs .vimrc .vim"    # list of files/folders to symlink in homedir
 
 ##########
 
