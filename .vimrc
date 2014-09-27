@@ -1,26 +1,20 @@
 execute pathogen#infect()
-
-" Colors {{{,
-set number 
+ 
 " Sets the colorscheme 
 colorscheme solarized
 
 " Enables syntax processing
 syntax enable
-" }}}
 
-" Spaces and Tabs {{{,
-set number
 " Number of visual spaces per TAB
 set tabstop=4
 " Number of spaces in tab when editing
 set softtabstop=4
 " Tabs are spaces
 set expandtab
-" }}}
+" Sets shiftwidth
+set shiftwidth=4
 
-" UI Layout {{{,
-set number 
 " Displays line numbers
 set number
 " Highlights the current line
@@ -33,20 +27,14 @@ set wildmenu
 set lazyredraw
 " Highlight matching [{()}]
 set showmatch
-" }}}
 
-" Searching {{{,
-set number
 " Search as characters are entered
 set incsearch
 " Highlight matches
 set hlsearch
 " Turn off search highlight to ,space
-nnoremap <leader><space> :nohlsearch<CR>
-" }}}
+nnoremap <leader>h :nohlsearch<CR>
 
-" Folding Options {{{,
-set number
 " Enable folding
 set foldenable
 " Open most folds by default
@@ -57,14 +45,13 @@ set foldnestmax=10
 nnoremap <space> za
 " Fold based on ident level
 set foldmethod=manual
-" }}}
 
-" Leader remaps {{{,
-set number
 " Move veritcally by visual line as opposed to physical line
 nnoremap j gj
 nnoremap k gk
 
+
+" Leader Keybinds
 " Leader is rebound to comma
 let mapleader=","
 " fd is escape
@@ -83,23 +70,41 @@ nnoremap <leader>s :mksession<CR>
 
 " Opens ag.vim
 nnoremap <leader>a :Ag
-" }}}
+" Opens NERDTree
+nnoremap <leader>t :NERDTree<CR>
 
-" CtrlP settings {{{,
-set number
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -1 --nocolor --hidden -g ""'
-let g:ctrlp_user_command = 'ag %s -1 --nocolor -g ""'
-" }}}
 
-" Backup stuff {{{,
-set number
 " Fixes backup stuff, moves backups to new directory
 set backup
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
 set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
-" }}}
+
+
+""" PLUGIN SETTINGS
+" Any keymapping for plugins that use the leader are with the rest of the leader keybinds
+
+" CtrlP settings 
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -1 --nocolor --hidden -g ""'
+let g:ctrlp_user_command = 'ag %s -1 --nocolor -g ""'
+
+
+" NeoComplete settings
+" Enable neocomplete at startup
+let g:neocomplete#enable_at_startup = 1
+" Use neocomplete smartcase
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Tab completion
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+
+" Gundo settings
+let g:gundo_width = 30
+let g:gundo_preview_height = 10
