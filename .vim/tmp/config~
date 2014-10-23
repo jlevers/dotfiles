@@ -188,6 +188,7 @@ assign [class="^libreoffice-writer$"] $tag5
 exec --no-startup-id urxvt
 exec --no-startup-id urxvt
 exec chromium
+exec subl3
 exec spotify
 exec libreoffice
 

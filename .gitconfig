@@ -1,3 +1,10 @@
 [user]
 	email = jesse27999@gmail.com
-	name = TheAtomicGoose
+	name = Jesse Evers
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[alias]
+	cm = commit
+	a = add
