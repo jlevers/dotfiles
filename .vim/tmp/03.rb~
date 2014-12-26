@@ -1,0 +1,16 @@
+require 'prime'
+
+def largest_prime_factor(num)
+  primes = []
+  primes << Prime.take_while { |p| p < num }
+  prime_factors = []
+  primes.length.times do |i|
+    if primes[i] % num == 0
+      prime_factors << primes[i]
+    end
+  end
+  puts prime_factors
+  puts primes[0]
+end
+
+largest_prime_factor(13195)

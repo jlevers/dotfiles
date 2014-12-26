@@ -1,0 +1,21 @@
+require 'spec_helper'
+
+describe UsersController do
+
+  describe "GET 'new'" do
+    it "returns http success" do
+      get 'new'
+      response.should be_success
+    end
+  end
+
+  describe "DELETE 'destroy'" do
+    context "as an admin user" do
+      it "should not destroy itself" do
+        user = FactoryGirl.create(:user, admin: true)
+        delete :destroy, user.id
+        expect(User.count).to eq(1)
+      end
+    end
+  end
+end

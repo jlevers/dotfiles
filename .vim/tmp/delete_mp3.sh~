@@ -1,0 +1,7 @@
+#!/bin/bash
+for f in ~/music/Bruno\ Mars\ Feat.\ Cee\ Lo\ Green\ \&\ B.o.B/Doo-Wops\ \&\ Hooligans/*.m4a; do
+  f="${f%.*}"
+  if [[ -f ${f}.mp4 ]]; then
+    rm -f "${f}.mp3" && echo >&2 "${f}.mp3 deleted"
+  fi
+done

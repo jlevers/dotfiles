@@ -1,0 +1,2 @@
+= render :partial => "combo_form"
+%p "test"

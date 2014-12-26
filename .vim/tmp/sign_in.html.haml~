@@ -1,0 +1,6 @@
+%h2
+  %div#link_to_sign_in{onclick: "document.getElementById(\"hidden_combo_form\").style.display = \"inline\"; document.getElementById(\"hidden_search_form\").style.display = \"none\""}
+    = link_to t("titles.sign_in_link"), '#'
+    = t("titles.sign_in", :thing => t("defaults.thing").titleize)
+  #div#link_to_search_again{onclick: "document.getElementById(\"hidden_search_form\").style.display= \"inline\"; document.getElementById(\"hidden_combo_form\").style.display = \"none\""}
+    = link_to "Search for another address", '#'

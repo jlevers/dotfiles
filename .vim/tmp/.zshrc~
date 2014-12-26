@@ -14,7 +14,7 @@ compinit
 # End of lines added by compinstall
 
 # Path is set here
-export PATH="/bin:/usr/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.1.0/bin"
+export PATH="$PATH:/bin:/usr/bin:$HOME/.rvm/bin:$HOME/.gem/ruby/2.1.0/bin"
 
 # Makes sure that aliases are autocompleted
 setopt completealiases
@@ -32,8 +32,14 @@ PROMPT='%{$fg[yellow]%}λ %{$fg[green]%}%c %{$fg[yellow]%}→ $(git_super_status
 #Aliases
 alias xrhoff="xrandr --output HDMI1 --off"
 alias xrhon="xrandr --output HDMI1 --mode 1920x1080 --right-of LVDS1"
+alias steam-wine="wine ~/.wine/drive_c/Program\ Files\ (x86)/Steam/Steam.exe -no-dwrite" 
 
 # Exporting LANGUAGE variable
 export LANGUAGE=en_US.UTF-8
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# variables
+HTTPS="91314cc0741c73d3b3dccd5233f8d407da726b84"

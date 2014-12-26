@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Abortion Rights Fund of Western Massachusetts</title>
+<link href="css/arfwm_style.css" rel="stylesheet" type="text/css" />
+<link rel="shortcut icon" href="images/siteimages/favicon.ico" />
+
+<style type="text/css">
+#leftcolumn li a.gethelp{
+	color: #FFFFFF;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	}
+#leftcolumn li a.gethelp:hover{
+	color: #FFFFFF;
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-weight: bold;
+	text-decoration: none;
+	}
+#leftcolumn li a.clinics{
+	padding-bottom: 14px;
+	}
+</style>
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="container">
+    <div id="header">
+        <div id="toolbox">
+            <p class="rightpic"><a href="index.html" class="uline">Home</a></p>
+	    <p style="font-size: 1.2em;clear: both;">
+	        <a href="en/donate.htm" class="noline">DONATE or</a>
+		<br style="clear:both;" />
+		<a href="en/volunteer.htm" class="noline">
+		    <img src="images/siteimages/arrow_right.png" alt="Donate or Volunteer"
+			 style="float: right; margin-left: 8px; padding-top: 5px; border: 0px;" />VOLUNTEER</a></p>
+	</div><!-- #BeginLibraryItem "/Library/main_nav.lbi" -->
+	<a href="index.html">
+	    <img src="images/siteimages/spacer.gif" alt="" width="102" height="110"
+		 style="border:0px;" /></a>
+
+	<div id="nav">
+	    <ul>
+	        <li><a href="en/get_help.htm">Getting Help </a></li>
+		<li><a href="en/donate.htm"></a><a href="en/contact_us.htm">Contact Us </a></li>
+		<li><a href="en/about_us.htm">About Us </a></li>
+	    </ul>
+	</div><!-- #EndLibraryItem -->
+    </div>
+
+    <div id="wrapper">
+        <div id="leftcolumn">
+	    <p>ARFWM provides direct financial assistance to women and girls
+	      seeking abortions who cannot afford them. Our primary commitment
+	      is to women and girls in the four counties of Western
+	      Massachusetts.</p>
+	</div>
+		
+	<div id="content"><p class="language"><a href="#">English</a> / <a href="es/index.htm">Español</a></p> 
+	    <h2>We Are Here to Help You</h2>
+	    <p>We provide financial assistance to women and girls who are
+	      seeking abortions. While we don't provide abortion care, we are
+	      here to help you pay for your abortion if you cannot afford
+	      it.</p>
+
+	    <p>Call us at <b>413-582-3532</b> or, if you are calling from
+	      Western Massachusetts, <b>800-465-6000</b>. Your call is
+	      confidential, and we will return your call within 24 hours. To
+	      learn more about how this works, please visit
+	      our <a href="en/get_help.htm">Get Help</a> page.</p>
+
+	    <p>If you are looking for medical help in Western Massachusetts,
+	      here is a <a href="en/clinics.htm">list of clinics</a>.</p>
+	  
+	    <p>Please contact us; We are here to help!<br /></p>
+
+	    <div style="margin-left: 20px;margin-right: 20px;border: 1px dashed #ccc">
+	        <p>Para hablar con alguien en espa&ntilde;ol, si usted vive en
+		  el oeste de Massachusetts, por favor llame al Planned
+		  Parenthood de Springfield al: <b>800.258.4448</b></p>
+	    </div>
+
+	    <br />
+
+	    <h2>We believe</h2>
+	    <p>Every woman and girl should be able to have only the children she
+	      wants to have. The Abortion Rights Fund of Western Massachusetts
+	      funds choices that make this vision a reality.</p>
+	    <div style="border: 1px solid green;margin: 10px 20px;">
+	        <h2>Read the report</h2>
+
+		<p>In 2011, the Massachusetts Abortion Funds published an
+		extensive evaluation on the experiences of women seeking
+		insurance for abortion care in the state.</p>
+
+		<p><a href="pdf/abortion_care_in_ma_report.pdf">Read the report
+		on abortion care in Massachusetts</a></p>
+	    </div>
+
+	    <p>&nbsp;</p>
+	    <p style="text-align:center;">
+	      <a href="http://www.nnaf.org/">
+		<img src="images/NNAF 1.gif" alt="National Network of Abortion Funds logo"
+		     width="130" height="118" style="border:0px;" />
+	      </a></p>
+	</div>
+
+	<div id="rightcolumn">
+	  <p class="quote">&ldquo;Sometimes people don&rsquo;t<br />
+	    understand and don&rsquo;t really care to
+	    because they don&rsquo;t have to deal
+	    with it day to day. But with your
+	    help I am able to make a positive
+	    future for myself and my five year
+	    old girl, and not have to worry
+	    about an abusive future. Once
+      again, thank you.&rdquo;</p>
+    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true" data-width="188" style="padding: 8px 16px;">
+      </div>
+	  <p style="text-align:center;">
+	      <img src="images/siteimages/butterfly_sm.png" alt="" width="177" height="176" />
+	  </p> 
+	</div>
+	<hr class="clear" />
+    </div>
+</div>
+
+<div id="footer"> &#8226; Copyright &copy; 2013 &#8226;
+</div>
+
+<p>&nbsp;</p>
+
+</body>
+</html>

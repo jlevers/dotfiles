@@ -7,13 +7,12 @@ call vundle#begin()
 
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
-
 " Emmet
 Plugin 'mattn/emmet-vim'
 " neocomplete.vim
 Plugin 'Shougo/neocomplete.vim'
-" Solarized
-Plugin 'altercation/vim-colors-solarized'
+" Base16
+Plugin 'chriskempson/base16-vim'
 " CtrlP
 Plugin 'kien/ctrlp.vim'
 " Gundo
@@ -36,16 +35,34 @@ Plugin 'tpope/vim-haml'
 Plugin 'cakebaker/scss-syntax.vim'
 " HTML autocompletion
 Plugin 'othree/html5.vim'
-" mad colorschemes
-Plugin 'flazz/vim-colorschemes'
+" Rspec syntax highlighting
+Plugin 'Keithbsmiley/rspec.vim'
+
 call vundle#end()
 
 set background=dark
 " Sets the colorscheme 
-colorscheme solarized 
+colorscheme base16-flat 
+
+" Displays line numbers
+set number
+" Highlights the current line
+set cursorline
+" Load filetype specific indent files
+filetype plugin indent on
 
 " Enables syntax processing
 syntax enable
+
+" Visual autocomplete for command menu
+set wildmenu
+" Only redraw when necessary
+set lazyredraw
+" Highlight matching [{()}]
+set showmatch
+
+set guioptions+=LlRrbTmt
+set guioptions-=LlRrbTmt
 
 " Number of visual spaces per TAB
 set tabstop=4
@@ -56,39 +73,16 @@ set expandtab
 " Sets shiftwidth
 set shiftwidth=4
 
-" Displays line numbers
-set number
-" Highlights the current line
-set cursorline
-" Load filetype specific indent files
-filetype plugin indent on
-" Visual autocomplete for command menu
-set wildmenu
-" Only redraw when necessary
-set lazyredraw
-" Highlight matching [{()}]
-set showmatch
-
+" Prevents beeping or flashing on error
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
 " Prevents auto commenting
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" Search as characters are entered
-set incsearch
 " Highlight matches
 set hlsearch
-" Turn off search highlight to ,space
+" Turn off search highlight to ,h
 nnoremap <leader>h :nohlsearch<CR>
-
-" Enable folding
-set foldenable
-" Open most folds by default
-set foldlevelstart=10
-" Set max number of nested folds
-set foldnestmax=10
-" Space open/closes folds
-nnoremap <space> za
-" Fold based on ident level
-set foldmethod=manual
 
 " Move veritcally by visual line as opposed to physical line
 nnoremap j gj
@@ -120,7 +114,6 @@ nnoremap <leader>a :Ag
 " Opens NERDTree
 nnoremap <leader>t :NERDTreeToggle<CR>
 
-
 " Fixes backup stuff, moves backups to new directory
 set backup
 set backupdir=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
@@ -129,19 +122,37 @@ set directory=~/.vim/tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
 " Filetype preferences
-autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
-autocmd FileType eruby setlocal sts=2 sw=2 expandtab 
+
+augroup configgroup
+autocmd!
+    autocmd VimEnter * highlight clear SignColumn
+    autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
+                \:call <SID>StripTrailingWhitespaces()
+    autocmd FileType java setlocal noexpandtab
+    autocmd FileType java setlocal list
+    autocmd FileType java setlocal listchars=tab:+\ ,eol:-
+    autocmd FileType java setlocal formatprg=par\ -w80\ -T4
+    autocmd FileType php setlocal expandtab
+    autocmd FileType php setlocal list
+    autocmd FileType php setlocal listchars=tab:+\ ,eol:-
+    autocmd FileType php setlocal formatprg=par\ -w80\ -T4
+    autocmd FileType ruby setlocal tabstop=2
+    "autocmd FileType ruby setlocal shiftwidth=2
+    "autocmd FileType ruby setlocal softtabstop=2
+    "autocmd FileType ruby setlocal commentstring=#\ %s
+    autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
+    autocmd FileType eruby setlocal sts=2 sw=2 expandtab 
+    autocmd FileType python setlocal commentstring=#\ %s
+    autocmd BufEnter *.cls setlocal filetype=java
+    autocmd BufEnter *.zsh-theme setlocal filetype=zsh
+    autocmd BufEnter Makefile setlocal noexpandtab
+    autocmd BufEnter *.sh setlocal tabstop=2
+    autocmd BufEnter *.sh setlocal shiftwidth=2
+    autocmd BufEnter *.sh setlocal softtabstop=2
+augroup END
 
 """ PLUGIN SETTINGS
 " Any keymapping for plugins that use the leader are with the rest of the leader keybinds
-
-" CtrlP settings 
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_user_command = 'ag %s -1 --nocolor --hidden -g ""'
-let g:ctrlp_user_command = 'ag %s -1 --nocolor -g ""'
-
 
 " NeoComplete settings
 " Enable neocomplete at startup
