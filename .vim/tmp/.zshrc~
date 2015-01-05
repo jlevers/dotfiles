@@ -43,3 +43,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # variables
 HTTPS="91314cc0741c73d3b3dccd5233f8d407da726b84"
+
+# Print the current running command's name to the window title
+#function preexec {
+#    printf '\e];%s\a' $1:q
+#}

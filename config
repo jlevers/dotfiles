@@ -97,7 +97,7 @@ set $tag2 "2: </>"
 set $tag3 "3: {}"
 set $tag4 "4: ♫"
 set $tag5 "5: ¶"
-set $tag6 "6: misc"
+set $tag6 "6: news"
 
 # switch to workspace
 bindsym $mod+1 workspace $tag1
@@ -178,16 +178,18 @@ for_window [class="Steam"] floating enable
 
 # Custom keybinds
 
-# Assigning specific applications to specific workspaces
-assign [class="^Spotify$"] $tag4
-assign [class="^Skype$"] $tag6
-assign [class="^libreoffice-writer$"] $tag5
-
 # Telling things to run on i3 startup
 exec --no-startup-id "urxvt -e weechat"
-exec --no-startup-id "urxvt -e ncmpcpp"
+exec --no-startup-id "urxvt -name 'mopidy' -e mopidy"
 exec chromium
 exec libreoffice
+exec gvim
+
+# Assigning specific applications to specific workspaces
+assign [class="Spotify"] $tag4
+assign [class="Skype"] $tag6
+assign [class="libreoffice-writer"] $tag5
+for_window [class="URxvt" instance="^mopidy$"] move scratchpad
 
 # Assigning specific workspaces to specific screens
 workspace $tag1 output LVDS1

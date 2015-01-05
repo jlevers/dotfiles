@@ -11,8 +11,8 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'mattn/emmet-vim'
 " neocomplete.vim
 Plugin 'Shougo/neocomplete.vim'
-" Base16
-Plugin 'chriskempson/base16-vim'
+" Solarized
+Plugin 'altercation/vim-colors-solarized'
 " CtrlP
 Plugin 'kien/ctrlp.vim'
 " Gundo
@@ -42,7 +42,7 @@ call vundle#end()
 
 set background=dark
 " Sets the colorscheme 
-colorscheme base16-flat 
+colorscheme solarized 
 
 " Displays line numbers
 set number
@@ -126,8 +126,6 @@ set writebackup
 augroup configgroup
 autocmd!
     autocmd VimEnter * highlight clear SignColumn
-    autocmd BufWritePre *.php,*.py,*.js,*.txt,*.hs,*.java,*.md
-                \:call <SID>StripTrailingWhitespaces()
     autocmd FileType java setlocal noexpandtab
     autocmd FileType java setlocal list
     autocmd FileType java setlocal listchars=tab:+\ ,eol:-

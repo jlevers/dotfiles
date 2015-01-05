@@ -1,0 +1,21 @@
+set imap_user=jesse27999@gmail.com
+set imap_pass=mamaanddada
+set folder=imaps://jesse27999@imap.gmail.com/
+set spoolfile=+INBOX
+set imap_check_subscribed
+set postponed = +[Gmail]/Drafts
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 60
+unset record
+set my_pass='mamaanddada'
+set my_user=jesse27999@gmail.com
+
+set realname = 'Jesse Evers'
+set from = jesse27999@gmail.com
+set use_from = yes
+
+set smtp_url=smtps://$my_user:$my_pass@smtp.domain.tld
+set ssl_force_tls = yes
+
+source ~/.mutt/mutt-colors-solarized-dark-256.muttrc
