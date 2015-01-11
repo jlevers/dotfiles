@@ -27,7 +27,7 @@ URxvt.scrollBar:            false
 ! Does some stuff
 URxvt.perl-ext-common:  default,matcher
 ! Specifies the program to open links with
-URxvt*url-launcher: usr/bin/chromium
+URxvt.url-launcher: /usr/bin/chromium
 ! Type of button for links
 URxvt.matcher.button:   1
 ! Color of links in terminal

@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Keydict</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Depot</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
-  <%= favicon_link_tag(source='favicon.ico') %>
 </head>
-<body>
+<body class="<%= controller.controller_name %>">
 
-  <%= render 'layouts/nav' %>
-  <%= render 'layouts/footer' %>
-
-  <%= yield %>
+<%= yield %>
 
 </body>
 </html>

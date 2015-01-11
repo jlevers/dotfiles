@@ -140,6 +140,7 @@ autocmd!
     "autocmd FileType ruby setlocal commentstring=#\ %s
     autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
     autocmd FileType eruby setlocal sts=2 sw=2 expandtab 
+    autocmd FileType scss setlocal sts=2 sw=2 expandtab
     autocmd FileType python setlocal commentstring=#\ %s
     autocmd BufEnter *.cls setlocal filetype=java
     autocmd BufEnter *.zsh-theme setlocal filetype=zsh

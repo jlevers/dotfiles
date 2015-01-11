@@ -42,7 +42,7 @@ call vundle#end()
 
 set background=dark
 " Sets the colorscheme 
-colorscheme base16-flat 
+colorscheme solarized 
 
 " Displays line numbers
 set number
