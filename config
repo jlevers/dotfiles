@@ -185,6 +185,7 @@ for_window [class="Steam"] floating enable
 # Telling things to run on i3 startup
 exec --no-startup-id "urxvt -e weechat"
 exec --no-startup-id "urxvt -name 'mopidy' -e mopidy"
+exec --no-startup-id ~/desktop/dotfiles/wallpaper.rb
 exec chromium
 exec libreoffice
 exec gvim
