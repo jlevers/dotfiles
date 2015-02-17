@@ -1,0 +1,23 @@
+/*
+ * This program is exercise A1.1 from the Pleasanton Public Schools website which
+ * has materials for learning skills used in the AP computer science exam. It
+ * requires gpdraw.jar to work.
+ *
+ * Written on 02-10-2015 by Jesse Evers.
+ */
+
+import gpdraw.*;  // Import jpdraw, the jar file is in the current directory
+
+public class DrawHouse {
+
+	public static void main(String[] args) {
+
+		private DrawingTool myPencil;
+		private SketchPad myPaper;
+
+		myPaper = new SketchPad(500, 500);  // Drawing area of 500px by 500px
+		myPencil = new DrawingTool(myPaper);
+
+		return xPos;
+	}
+}

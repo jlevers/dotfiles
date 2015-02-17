@@ -1,0 +1,43 @@
+/*
+ * This program reads from a file in the same directory as it called testdata.txt
+ * which contains a student's name on one line, and then one test grade per line
+ * for the next three lines. It returns the student's name and their grade, which
+ * is found by averaging the test grades.
+ *
+ * This program was written as an exercise for the Java Notes online textbook
+ * on 02-09-2015 by Jesse Evers.
+ */
+
+import java.util.Scanner;  // Imports scanner for reading file
+import java.io.File;  // For managing files
+import java.io.FileNotFoundException;  // For throwing the proper exceptions
+
+public class StudentGrade {
+
+	public static void main(String[] args) throws FileNotFoundException {
+
+		/* Declare variables */
+		String student;  // Student's name
+		int test1, test2, test3;  // Student's test scores
+		double grade;  // Average of the test grades
+		Scanner stdin;  // Scanner for reading the file
+		File file;  // File itself
+
+		/* Declare and read file */
+		file = new File("./testdata.txt");
+		stdin = new Scanner(file);
+
+		/* Get student's name and test scores */
+		student = stdin.nextLine();
+		test1 = stdin.nextInt();
+		test2 = stdin.nextInt();
+		test3 = stdin.nextInt();
+
+		grade = (test1 + test2 + test3) / 3.0;
+
+		/* Display the output */
+		System.out.printf("%s's grade is %1.1f.", student, grade);
+
+	}  // End of main()
+
+}  // End of StudentGrade
