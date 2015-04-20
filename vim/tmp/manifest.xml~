@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ApplicationManifest xmlns="http://schemas.google.com/ApplicationManifest/2009">
+
+    <Name>College Email Sorter</Name>
+
+    <Description>
+        Sorts college recruitment emails into a separate folder based on name of sender and content of subject line.
+    </Description>
+
+    <Extension id="EmailSenderExtractor" type="contextExtractor">
+        <Name>Email Sender Extractor</Name>
+        <Url>google.com:EmailAddressExtractor</Url>
+        <Triggers ref="CollegeEmailSorter" />
+        <Scope ref="emailSender" />
+        <Container name="from" />
+    </Extension>
+
+    <Extension id="EmailSubjectExtractor" type="contextExtractor">
+        <Name>Email Subject Extractor</Name>
+        <Url>google.com:EmailSubjectExtractor</Url>
+        <Triggers ref="CollegeEmailSorter" />
+        <Scope ref="emailSubject" />
+        <Container name="subject" />
+    </Extension>
+
+    <Extension id="CollegeEmailSorter" type="gadget">
+        <Name>College Email Sorter contextual gadget</Name>
+        <Url>https://code.google.com/p/college-email-sorter/source/browse/gadget.xml</Url>
+        <Container name="mail" />
+    </Extension>
+
+    <Scope id="emailSender">
+        <Url>tag:google.com,2010:auth/contextual/extractor/FROM</Url>
+        <Reason>
+            This application searches the sender of each email for names related to college admissions.
+        </Reason>
+    </Scope>
+
+</ApplicationManifest>

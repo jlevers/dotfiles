@@ -13,7 +13,7 @@ URxvt.lineSpace:            0
 ! Allows bold font
 URxvt.allow_bold:           true
 ! Sets font and bold font
-URxvt*font: xft:Andale Mono:pixelsize=14:antialias=true
+URxvt*font: xft:Andale Mono:style=semiBold:pixelsize=14:antialias=true
 URxvt*boldFont: xft:Andale Mono:bold:pixelsize=14:antialias=true
 ! Fix font spacing
 URxvt*letterSpace: -1

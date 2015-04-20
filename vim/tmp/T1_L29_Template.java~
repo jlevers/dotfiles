@@ -1,0 +1,19 @@
+
+import java.io.*;
+import static java.lang.System.*;
+
+import java.util.Scanner;
+import java.lang.Math;
+
+
+class lesson29_notes{
+//Lesson 29: Arrays of Strings accessing Methods
+
+	public static void main (String str[]) throws IOException {
+
+		int[] array = new int[50];	
+		System.out.println(array.length);
+
+	}
+  
+}

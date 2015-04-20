@@ -1,0 +1,20 @@
+sten 80
+
+# Use name-based virtual hosting.
+NameVirtualHost *:80
+UseCanonicalName Off
+
+LogFormat "%V %h %l %u %t \"%r\" %s %b \"%{Referer}i\" \"%{User-Agent}i\"" dynamic_vhosts
+CustomLog /var/log/apache2/access_log dynamic_vhosts
+
+<VirtualHost *:80>
+  ServerName localhost
+  VirtualDocumentRoot /home/jesse/development/lamp/%0
+
+  <Directory "/home/jesse/development/lamp">
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    Allow from all
+  </Directory>
+</VirtualHost>

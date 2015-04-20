@@ -1,0 +1,46 @@
+#!/bin/ruby
+
+# Gets user input
+input = gets.chomp
+
+# Define matrix
+matrix = Array.new(22){Array.new(10)}
+
+def initMat(mat)
+  for i in 0..21
+    for j in 0..9
+      mat[i][j] = "."
+    end
+  end
+end
+
+def printMat(mat)
+  for i in 0..21
+    for j in 0..9
+      print mat[i][j]
+      print " "
+    end
+    puts ""
+  end
+end
+
+def inputMat(mat)
+  for i in 0..21
+    row = gets.chomp
+    mat[i] = row.split
+  end
+  printMat(mat)
+end
+
+# Initialize the matrix
+initMat(matrix)
+
+if input.eql? "q"  # Input of q, quit/do nothing
+elsif input.eql? "p"  # Input of p, print out the matrix as it currently is
+  printMat(matrix)
+elsif input.eql? "g"  # Input of g, print out the array given via standard input
+  inputMat(matrix)
+elsif input.eql? "c"  # Input of c, clear the array (set it to all periods again)
+  initMat(matrix)
+  #puts "test"
+end

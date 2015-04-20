@@ -173,7 +173,7 @@ bar {
                 focused_workspace  #073642 #073642 #eee8d5
                 active_workspace   #073642 #073642 #2aa198
                 inactive_workspace #073642 #073642 #268bd2
-                urgent_workspace   #dc322f #dc322f #fdf6e3 
+                urgent_workspace   #dc322f #dc322f #fdf6e3
         }
         status_command i3status
 }
@@ -184,17 +184,19 @@ for_window [class="Steam"] floating enable
 
 # Telling things to run on i3 startup
 exec --no-startup-id "urxvt -e weechat"
+exec atom -n ~/documents/school/Tenth\ Grade/AP\ Resources
+exec atom -n ~/development
 exec --no-startup-id ~/desktop/dotfiles/wallpaper.rb
 exec chromium
 exec libreoffice
-exec gvim
 exec spotify
+exec --no-startup-id "urxvt -e xflux -z 01039"
 
 # Assigning specific applications to specific workspaces
 assign [class="Spotify"] $tag1
 assign [class="Skype"] $tag6
 assign [class="libreoffice-writer"] $tag5
-for_window [class="URxvt" instance="^mopidy$"] move scratchpad
+for_window [class="URxvt" instance="mopidy"] move scratchpad
 
 # Assigning specific workspaces to specific screens
 workspace $tag1 output LVDS1
@@ -211,6 +213,10 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+Shift+plus scratchpad show
 # Launch pavucontrol
 bindsym $mod+Shift+p exec pavucontrol
+# Switch screen timeout on or off
+bindsym $mod+Shift+t exec ~/desktop/dotfiles/timeout.rb
+# Activate i3lock
+bindsym $mod+u exec ~/desktop/dotfiles/lock.sh
 
 # Scrot settings
 bindsym Print exec scrot -e 'mv $f ~/pictures/screenshots'

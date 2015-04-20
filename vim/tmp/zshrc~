@@ -36,7 +36,7 @@ alias xrhon16="xrandr --output HDMI1 --mode 1680x1050 --right-of LVDS1"
 alias sus="systemctl suspend"
 alias jc="javac -g"
 alias pacman="sudo pacman"
-alias ls="ls --color -F"
+alias ls="ls --color"
 
 # Exporting LANGUAGE variable
 export LANGUAGE=en_US.UTF-8

@@ -21,6 +21,6 @@ xrandr --output  LVDS1 --auto --output HDMI1 --right-of LVDS1
 # exec startxfce4
 # ...or the Window Manager of your choice
 # exec xmonad
-# exec i3
+exec i3
 # sxhkd &
 # exec bspwm
