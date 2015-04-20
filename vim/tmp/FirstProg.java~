@@ -1,8 +1,0 @@
-/* Program FirstProg.java
-   Start with a comment, giving the program name and a brief
-   description of what the program does. */
-
-import package1.*;
-import package2.subpackage.ClassName;
-
-public class 

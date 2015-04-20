@@ -1,2 +1,0 @@
-<hr>
-<p class="text-left" style="float: left; font-size: 8pt; color: #A8A8A8; margin-top: -16px;">Made by <%= link_to "Jesse Evers", "http://github.com/TheAtomicGoose" %></p>

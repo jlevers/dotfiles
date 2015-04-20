@@ -1,6 +1,0 @@
-module Codebreaker
-  class GAme
-    def start
-    end
-  end
-end
