@@ -1,11 +1,4 @@
 #!/bin/bash
-#if [ -a $HOME/tmp/head_0.png ]; then
-#  rm $HOME/tmp/head_0.png
-#fi
-
-#if [ -a $HOME/tmp/head_1.png ]; then
-#  rm $HOME/tmp/head_1.png
-#fi
 
 sh $HOME/desktop/dotfiles/induvidual_scrot.sh
 convert $HOME/tmp/head_0.png -scale 10% -scale 1000% $HOME/tmp/head_0.png
