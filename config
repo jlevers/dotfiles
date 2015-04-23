@@ -175,7 +175,8 @@ bar {
                 inactive_workspace #073642 #073642 #268bd2
                 urgent_workspace   #dc322f #dc322f #fdf6e3
         }
-        status_command i3status
+        # status_command i3status
+        status_command ~/desktop/dotfiles/i3bar-conky.sh
 }
 
 for_window [class="Steam"] floating enable
