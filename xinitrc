@@ -13,8 +13,7 @@ fi
 
 xrandr --output  LVDS1 --auto --output HDMI1 --right-of LVDS1
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
-#sh ~/.fehbg &
-#ruby ~/desktop/dotfiles/wallpaper.rb
+xflux -z 01039
 
 # exec gnome-session
 # exec startkde

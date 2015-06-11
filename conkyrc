@@ -13,12 +13,11 @@ cpu_avg_samples 1
 
 TEXT
 
-[{ "full_text" : " Uptime: $uptime_short " , "color" : "\#ffffff" },
-{ "full_text" : " RAM: ${mem} " , "color" : ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif} },
-{ "full_text" : " CPU: ${cpu}% " , "color" : "\#ffffff" },
-{ "full_text" : " I/O: ${diskio /dev/sdb} " , "color" : "\#ffffff" },
+[{ "full_text" : " Uptime: $uptime_short " , "color" : "\#839496" },
+{ "full_text" : " RAM: ${mem} " , "color" : ${if_match ${memperc}<90}"\#839496"${else}"\#ff0000"${endif} },
+{ "full_text" : " CPU: ${cpu}% " , "color" : "\#839496" },
 { "full_text" : " W: ${if_up ra0} ${addr ra0} ${else} Down ${endif}" , "color" : ${if_up ra0}"\#859900" ${else}"\#DC322F" ${endif}},
 { "full_text" : " E: ${if_up enp3s0} ${addr enp3s0} ${else} Down ${endif}" , "color" : ${if_up enp3s0}"\#859900" ${else}"\#DC322F" ${endif}},
-{ "full_text" : " Bat: ${battery_percent BAT1}% " , "color" : "\#ffffff"},
+{ "full_text" : " Bat: ${battery_percent BAT1}% " , "color" : "\#6C71C4"},
 { "full_text" : " ${execi 300 ~/desktop/dotfiles/weather.sh 01039} " , "color" : "\#268BD2" },
-{ "full_text" : " ${time %A %m/%d %l:%M} " , "color" : "\#ffffff" }],
+{ "full_text" : " ${time %A %m/%d %l:%M} " , "color" : "\#2AA198" }],

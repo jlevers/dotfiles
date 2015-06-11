@@ -37,10 +37,12 @@ alias sus="systemctl suspend"
 alias jc="javac -g"
 alias pacman="sudo pacman"
 alias ls="ls --color -F"
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+alias chromium="chromium --high-dpi-support=1 --force-device-scale-factor=1"
 
 # Exporting LANGUAGE variable
 export LANGUAGE=en_US.UTF-8
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export ANDROID_HOME=/opt/android-sdk
+export BROWSER="chromium"

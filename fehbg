@@ -1,1 +1,2 @@
-feh  --bg-fill 'http://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-104948.jpg' 
+#!/bin/sh
+feh  --image-bg black --bg-max '/home/jesse/pictures/wallpapers/6BPOi2E.jpg' 
