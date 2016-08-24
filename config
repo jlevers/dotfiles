@@ -176,7 +176,7 @@ bar {
             urgent_workspace   #dc322f #dc322f #fdf6e3
     }
     # status_command i3status
-    status_command ~/desktop/dotfiles/i3bar-conky.sh
+    status_command ~/dotfiles/i3bar-conky.sh
 }
 
 for_window [class="Steam"] floating enable
@@ -187,12 +187,10 @@ for_window [class="Steam"] floating enable
 exec --no-startup-id "urxvt -e weechat"
 exec --no-startup-id "urxvt -name htop -e htop"
 exec --no-startup-id "urxvt -name ranger -e ranger"
-exec --no-startup-id ~/desktop/dotfiles/wallpaper.sh
-exec sublime
+exec --no-startup-id "xflux -z 01039"
+exec --no-startup-id ~/dotfiles/wallpaper.sh
 exec chromium
-exec libreoffice
 exec spotify
-exec caffeine
 
 # Assigning specific applications to specific workspaces
 assign [class="Spotify"] $tag1
@@ -202,14 +200,6 @@ assign [class="htop"] $tag4
 assign [class="ranger"] $tag4
 for_window [class="URxvt" instance="mopidy"] move scratchpad
 
-# Assigning specific workspaces to specific screens
-workspace $tag1 output LVDS1
-workspace $tag2 output HDMI1
-workspace $tag3 output HDMI1
-workspace $tag4 output HDMI1
-workspace $tag5 output HDMI1
-workspace $tag6 output HDMI1
-
 # Scratchpad controls
 # Move window to scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -218,7 +208,10 @@ bindsym $mod+Shift+plus scratchpad show
 # Launch pavucontrol
 bindsym $mod+Shift+p exec pavucontrol
 # Activate i3lock
-bindsym $mod+u exec ~/desktop/dotfiles/lock.sh
+bindsym $mod+u exec ~/dotfiles/lock.sh
+# Brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 # Scrot settings
 bindsym Print exec scrot -e 'mv $f ~/pictures/screenshots'

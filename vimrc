@@ -7,38 +7,37 @@ call vundle#begin()
 
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
-" Emmet
-Plugin 'mattn/emmet-vim'
-" neocomplete.vim
-Plugin 'Shougo/neocomplete.vim'
+
+" Sensible defaults
+Plugin 'tpope/vim-sensible'
+" YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
 " Solarized
 Plugin 'altercation/vim-colors-solarized'
 " CtrlP
 Plugin 'kien/ctrlp.vim'
-" Gundo
-Plugin 'sjl/gundo.vim'
 " NERDTree
 Plugin 'scrooloose/nerdtree'
+" Autoclose
+Plugin 'Raimondi/delimitMate'
 " Surround.vim
 Plugin 'tpope/vim-surround'
-" rails.vim
-Plugin 'tpope/vim-rails'
-" vim-airline
-Plugin 'bling/vim-airline'
-" vim-fugitive
+" Git wrapper
 Plugin 'tpope/vim-fugitive'
-" vim-autocomplete
-Plugin 'Townk/vim-autoclose'
-" sass, haml, scss runtimes
-Plugin 'tpope/vim-haml'
 " sass highlighting
 Plugin 'cakebaker/scss-syntax.vim'
 " HTML autocompletion
 Plugin 'othree/html5.vim'
-" Rspec syntax highlighting
-Plugin 'Keithbsmiley/rspec.vim'
 " Java snippets
 Plugin 'Yggdroot/indentLine'
+" Javascript
+Plugin 'pangloss/vim-javascript'
+" Javascript completion
+Plugin 'ternjs/tern_for_vim'
+" JSON
+Plugin 'helino/vim-json'
+" Alignment
+Plugin 'junegunn/vim-easy-align'
 
 call vundle#end()
 
@@ -152,25 +151,13 @@ augroup END
 """ PLUGIN SETTINGS
 " Any keymapping for plugins that use the leader are with the rest of the leader keybinds
 
-" NeoComplete settings
-" Enable neocomplete at startup
-let g:neocomplete#enable_at_startup = 1
-" Use neocomplete smartcase
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Tab completion
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" Tern settings
+autocmd FileType javascript setlocal omnifunc=tern#Complete
 
+" vim-easy-align settings
 
-" Gundo settings
-let g:gundo_width = 30
-let g:gundo_preview_height = 10
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-" Emmet settings
-
-" IndentLine settings
-let g:indentLine_color_term = 240
-let g:indentLine_color_gui = '#586e75'
-let g:indentLine_char = '¦'
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
