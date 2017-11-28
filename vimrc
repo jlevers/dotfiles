@@ -2,11 +2,11 @@ set nocompatible
 filetype off
 
 " Set runtime path to include Vundle and initialize
-set runtimepath+=~/.vim/bundle/Vundle.vim
+set rtp+=~/dotfiles/vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Sensible defaults
 Plugin 'tpope/vim-sensible'
@@ -38,6 +38,10 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'helino/vim-json'
 " Alignment
 Plugin 'junegunn/vim-easy-align'
+" Quick search
+Plugin 'mileszs/ack.vim'
+" Easy Commenting
+Plugin 'tpope/vim-commentary'
 
 call vundle#end()
 
@@ -161,3 +165,8 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Use ag with ack
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif

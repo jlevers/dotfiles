@@ -29,7 +29,7 @@ font pango: Andale Mono 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Shift+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec rxvt-unicode
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -184,13 +184,10 @@ for_window [class="Steam"] floating enable
 # Custom keybinds
 
 # Telling things to run on i3 startup
-exec --no-startup-id "urxvt -e weechat"
 exec --no-startup-id "urxvt -name htop -e htop"
 exec --no-startup-id "urxvt -name ranger -e ranger"
 exec --no-startup-id "xflux -z 01039"
-exec --no-startup-id ~/dotfiles/wallpaper.sh
-exec chromium
-exec spotify
+exec firefox
 
 # Assigning specific applications to specific workspaces
 assign [class="Spotify"] $tag1

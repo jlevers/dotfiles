@@ -14,7 +14,7 @@ compinit
 # End of lines added by compinstall
 
 # Path is set here
-export PATH="$PATH:/bin:/usr/bin"
+export PATH="$PATH:/bin:/usr/bin:~/.local/share/umake/bin/android-studio"
 
 # Makes sure that aliases are autocompleted
 setopt completealiases
@@ -24,22 +24,25 @@ setopt HIST_IGNORE_DUPS
 autoload -Uz colors && colors
 
 # Sourcing
-#source ~/desktop/zsh-git-prompt/zshrc.sh
-source ~/src/github/gh/bash/gh.bash
+source ~/src/github/gh/zsh/gh/gh.plugin.zsh
 
 # Prompt
 PROMPT="%{$fg[yellow]%}λ %{$fg[green]%}%c %{$fg[yellow]%}→ %{$reset_color%}%"
 
 #Aliases
-alias sus="systemctl suspend"
 alias jc="javac -g"
-alias pacman="sudo pacmatic"
+alias apt="sudo apt"
 alias ls="ls --color -F"
 alias l="ls"
 alias s="ls"
 alias sl="ls"
+alias vim='nvim'
+#alias android-studio='~/.local/share/umake/bin/android-studio'
 
 # Exporting LANGUAGE variable
 export LANGUAGE=en_US.UTF-8
 export ANDROID_HOME=/opt/android-sdk
-export BROWSER="firefox-developer"
+export BROWSER="firefox"
+
+export NVM_DIR="/home/jesse/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
