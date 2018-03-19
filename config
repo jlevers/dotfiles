@@ -180,14 +180,15 @@ bar {
 }
 
 for_window [class="Steam"] floating enable
+for_window [title="morning"] floating enable resize set 1920 1080
+for_window [title="morning"] move absolute position center
 
 # Custom keybinds
 
 # Telling things to run on i3 startup
-exec --no-startup-id "urxvt -name htop -e htop"
-exec --no-startup-id "urxvt -name ranger -e ranger"
 exec --no-startup-id "xflux -z 01039"
 exec firefox
+exec spotify
 
 # Assigning specific applications to specific workspaces
 assign [class="Spotify"] $tag1
