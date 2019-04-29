@@ -14,7 +14,7 @@ compinit
 # End of lines added by compinstall
 
 # Path is set here
-export PATH="$PATH:/bin:/usr/bin:~/.local/share/umake/bin/android-studio"
+export PATH="$PATH:/bin:/usr/bin:~/.local/share/umake/bin/android-studio:/usr/lib/chromium-browser/"
 
 # Makes sure that aliases are autocompleted
 setopt completealiases
@@ -22,9 +22,6 @@ setopt completealiases
 setopt HIST_IGNORE_DUPS
 
 autoload -Uz colors && colors
-
-# Sourcing
-source ~/src/github/gh/zsh/gh/gh.plugin.zsh
 
 # Prompt
 PROMPT="%{$fg[yellow]%}λ %{$fg[green]%}%c %{$fg[yellow]%}→ %{$reset_color%}%"
@@ -47,18 +44,16 @@ export BROWSER="firefox"
 export NVM_DIR="/home/jesse/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# CLI navigation commands reminder, from @Exuma on HN
-function echo_color() {
-  local color="$1"
-  echo -e "${color}$2\e[0m"
-}
-echo_color "\e[38;5;4m" "C-f  Move forward"
-echo_color "\e[38;5;4m" "C-b  Move backward"
-echo_color "\e[38;5;4m" "C-p  Move up"
-echo_color "\e[38;5;4m" "C-n  Move down"
-echo_color "\e[38;5;4m" "C-a  Jump to beginning of line"
-echo_color "\e[38;5;4m" "C-e  Jump to end of line"
-echo_color "\e[38;5;4m" "C-d  Delete forward"
-echo_color "\e[38;5;4m" "C-h  Delete backward"
-echo_color "\e[38;5;4m" "C-k  Delete forward to end of line"
-echo_color "\e[38;5;4m" "C-u  Delete entire line"
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+PATH="/home/jesse/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/jesse/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jesse/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jesse/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jesse/perl5"; export PERL_MM_OPT;
+
+# Sourcing
+source ~/src/github/gh/zsh/gh/gh.plugin.zsh
+source ~/src/catkin-ws/devel/setup.zsh
+
