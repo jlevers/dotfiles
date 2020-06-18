@@ -1,0 +1,5 @@
+i3config:~/.i3/config
+emacs:~/.emacs.d
+mimeapps:~/.config/mimeapps.list
+zshrc:~/.zshrc
+screenlayout:~/.screenlayout
