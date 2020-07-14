@@ -55,6 +55,7 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 ## Alias section 
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
+alias sl='ls'
 alias free='free -m'                                            # Show sizes in MB
 alias gitu='git add . && git commit && git push'
 alias ga='git add'
@@ -168,30 +169,30 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up			
 bindkey '^[[B' history-substring-search-down
 
-# Apply different settigns for different terminals
+# Apply different settings for different terminals
 case $(basename "$(cat "/proc/$PPID/comm")") in
   login)
     	RPROMPT="%{$fg[red]%} %(?..[%?])" 
     	alias x='startx ~/.xinitrc'      # Type name of desired desktop after x, xinitrc is configured for it
     ;;
-#  'tmux: server')
-#        RPROMPT='$(git_prompt_string)'
-#		## Base16 Shell color themes.
-#		#possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
-#		#atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
-#		#embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
-#		#marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
-#		#solarized, summerfruit, tomorrow, twilight
-#		#theme="eighties"
-#		#Possible variants: dark and light
-#		#shade="dark"
-#		#BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
-#		#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-#		# Use autosuggestion
-#		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-#		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-#  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-#     ;;
+  'tmux: server')
+        RPROMPT='$(git_prompt_string)'
+		## Base16 Shell color themes.
+		#possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
+		#atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties,
+		#embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
+		#marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
+		#solarized, summerfruit, tomorrow, twilight
+		theme="eighties"
+		#Possible variants: dark and light
+		shade="dark"
+		BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
+		[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+		# Use autosuggestion
+		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+    ;;
   *)
         RPROMPT='$(git_prompt_string)'
 		# Use autosuggestion
@@ -200,3 +201,12 @@ case $(basename "$(cat "/proc/$PPID/comm")") in
   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
     ;;
 esac
+
+
+export EDITOR=vim
+
+dotfiles_dir="$HOME/documents/dotfiles"
+export PATH="$HOME/.rbenv/bin:$dotfiles_dir:$PATH"
+
+eval "$(rbenv init -)"
+source /usr/share/nvm/init-nvm.sh

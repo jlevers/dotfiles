@@ -2,7 +2,7 @@
 set -e
 shopt -s nullglob  # Count an empty dir as 0 files, not 1
 
-layouts=(./screenlayout/*)
+layouts=($HOME/.screenlayout/*)
 numlayouts=${layouts[@]}
 
 if [[ $numlayouts -eq 0 ]]; then
