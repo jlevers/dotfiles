@@ -3,7 +3,7 @@ set -e
 shopt -s nullglob  # Count an empty dir as 0 files, not 1
 
 layouts=($HOME/.screenlayout/*)
-numlayouts=${layouts[@]}
+numlayouts=${#layouts[@]}
 
 if [[ $numlayouts -eq 0 ]]; then
     echo "No screen layouts available."

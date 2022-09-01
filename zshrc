@@ -18,8 +18,8 @@ zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
-HISTSIZE=1000
-SAVEHIST=500
+HISTSIZE=10000
+SAVEHIST=5000
 #export EDITOR=/usr/bin/nano
 #export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
@@ -53,6 +53,7 @@ bindkey '^H' backward-kill-word                                 # delete previou
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 ## Alias section 
+alias sudo='sudo '
 alias cp="cp -i"                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias sl='ls'
@@ -60,10 +61,28 @@ alias free='free -m'                                            # Show sizes in 
 alias gitu='git add . && git commit && git push'
 alias ga='git add'
 alias gc='git commit'
-alias gd='git diff'
+alias gch='git checkout'
+alias gd='git diff --color-words'
+alias gl='git log'
 alias gp='git push'
 alias gs='git status'
 alias pacman='sudo pacman'
+alias dj='./manage.py'
+alias art='php artisan'
+alias artm='php artisan migrate'
+alias tink='php artisan tinker'
+alias v='xdg-open'
+alias syssts='systemctl status'
+alias sysst='sudo systemctl start'
+alias sysr='sudo systemctl restart'
+alias tmacs='emacs -nw'
+alias gr='./gradlew'
+alias swag2='java -jar ~/src/tools/swagger/swagger-codegen-cli-2.4.13.jar'
+alias swag3='java -jar ~/src/tools/swagger/swagger-codegen-cli.jar'
+alias openapi='java -jar ~/src/tools/openapitools/openapi-generator-cli.jar'
+alias firefox='firefox-developer-edition'
+alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
+alias ls='exa'
 
 # Theming section  
 autoload -U compinit colors zcalc
@@ -206,7 +225,31 @@ esac
 export EDITOR=vim
 
 dotfiles_dir="$HOME/documents/dotfiles"
-export PATH="$HOME/.rbenv/bin:$dotfiles_dir:$PATH"
+PATH="$HOME/.rbenv/bin:$dotfiles_dir:$PATH"
+PATH="$(yarn global bin):$PATH"
 
 eval "$(rbenv init -)"
 source /usr/share/nvm/init-nvm.sh
+
+export PHPENV_ROOT="/home/jesse/.phpenv"
+if [ -d "${PHPENV_ROOT}" ]; then
+  PATH="${PHPENV_ROOT}/bin:${PATH}"
+  eval "$(phpenv init -)"
+fi
+
+export DOCKER_ROOT=unix:///run/user/1000/docker.sock
+
+# fzf
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+# virtualenv
+source $HOME/.local/bin/virtualenvwrapper.sh
+
+PATH="$HOME/.config/composer/vendor/bin:$PATH"
+PATH="/home/jesse/.local/share/solana/install/active_release/bin:/home/jesse/.cargo/bin:$PATH"
+PATH="/home/jesse/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/jesse/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/jesse/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/jesse/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/jesse/perl5"; export PERL_MM_OPT;

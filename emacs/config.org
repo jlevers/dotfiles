@@ -10,35 +10,36 @@ Started keeping track of this as of 5/23/2020. Where things I added before that 
 - Better theme loading
 - Only showing line numbers in programming modes
 * Install packages
-
-Install packages via ~straight.el~.
-
 #+BEGIN_SRC emacs-lisp
-  (use-package all-the-icons)
-  (use-package company)
-  (use-package counsel)
-  (use-package csv-mode)
-  (use-package edbi)
-  (use-package ein)
-  (use-package fill-column-indicator)
-  (use-package hc-zenburn-theme)
-  (use-package haskell-mode)
-  (use-package ivy)
-  (use-package js2-mode)
-  (use-package magit)
-  (use-package markdown-mode)
-  (use-package neotree)
-  (use-package org-bullets)
-  (use-package org-pomodoro)
-  (use-package php-mode)
-  (use-package projectile)
-  (use-package projectile-ripgrep)
-  (use-package rust-mode)
-  (use-package smartparens)
-  (use-package swiper)
-  (use-package undo-tree)
-  (use-package web-mode)
-  (use-package yaml-mode)
+(use-package all-the-icons)
+(use-package company)
+(use-package counsel)
+(use-package csv-mode)
+(use-package edbi)
+(use-package ein)
+(use-package fill-column-indicator)
+(use-package flycheck)
+(use-package graphql-mode)
+(use-package hc-zenburn-theme)
+(use-package haskell-mode)
+(use-package ivy)
+(use-package json-mode)
+(use-package magit)
+(use-package markdown-mode)
+(use-package neotree)
+(use-package org-bullets)
+(use-package org-pomodoro)
+(use-package php-mode)
+(use-package projectile)
+(use-package projectile-ripgrep)
+(use-package remember)
+(use-package rust-mode)
+(use-package smartparens)
+(use-package sass-mode)
+(use-package swiper)
+(use-package undo-tree)
+(use-package web-mode)
+(use-package yaml-mode)
 #+END_SRC
 
 * Basic config
@@ -105,7 +106,6 @@ This disables the last theme before loading the new one, instead of layering the
 #+end_src
 
 ** Add the local ~load-path~, so that we can load customization files.
-
 #+begin_src emacs-lisp
   (add-to-list 'load-path (concat user-emacs-directory "lisp"))
 #+end_src
@@ -136,13 +136,6 @@ This disables the last theme before loading the new one, instead of layering the
   (add-hook 'text-mode-hook #'turn-on-visual-line-mode)
 #+end_src
 
-** Keybindings
-#+begin_src emacs-lisp
-  ;; Invoke M-x without Alt key
-  (global-set-key (kbd "C-x C-m") 'execute-extended-command)
-  (global-set-key (kbd "C-c C-m") 'execute-extended-command)
-#+end_src
-
 ** Backup and autosave settings
 #+begin_src emacs-lisp
 (setq auto-save-default nil)
@@ -155,7 +148,8 @@ This disables the last theme before loading the new one, instead of layering the
 
 ** Aliases
 #+begin_src emacs-lisp
-  (defalias 'qrr 'query-replace-regexp)
+(defalias 'qr 'query-replace)
+(defalias 'qrr 'query-replace-regexp)
 #+end_src
 
 ** Functions to rename or delete file /and/ associated buffer
@@ -196,12 +190,16 @@ This disables the last theme before loading the new one, instead of layering the
 
 ** Filetype/mode mapping
 #+begin_src emacs-lisp
-  (setq auto-mode-alist
-        (append
-         '(("\\.html?\\'" . web-mode)
-           ("\\.jsx?\\'" . js2-mode)
-           ("\\.vue\\'" . web-mode))
-         auto-mode-alist))
+(setq auto-mode-alist
+      (append
+       '(("\\.html?\\'" . web-mode)
+         ("\\.jsx\\'" . js-jsx-mode)
+         ("components\\/.*\\.js\\'" . js-jsx-mode)
+         ("pages\\/.*\\.js\\'" . js-jsx-mode)
+         ("\\.vue\\'" . web-mode)
+         ("\\.scss\\'" . scss-mode)
+         ("\\.sass\\'" . sass-mode))
+       auto-mode-alist))
 #+end_src
 
 * Languages
@@ -228,21 +226,41 @@ This is supposed to fix indentation, which it sorta does, but not perfectly.
 #+end_src
 ** HTML/CSS/JS
 #+begin_src emacs-lisp
-  (setq tab-width 2)
-  (setq js-indent-level 2)
-  (setq css-indent-offset 2)
-  (defun my-web-mode-hook ()
-    "Hooks for web-mode."
-    (setq web-mode-markup-indent-offset 2)
-    (setq web-mode-css-indent-offset 2)
-    (setq web-mode-code-indent-offset-2))
-  (add-hook 'web-mode-hook 'my-web-mode-hook)
+(setq tab-width 2)
+(setq js-indent-level 2)
+(setq css-indent-offset 2)
+(defun my-web-mode-hook ()
+  "Hooks for web-mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset-2)
+  (setq web-mode-enable-auto-pairing 1)
+  (setq web-mode-enable-current-column-highlight t)
+  (setq web-mode-ac-sources-alist
+        '(("css" . (ac-source-css-property))
+          ("html" . (ac-source-words-in-buffer ac-source-abbrev))
+)))
+(add-hook 'web-mode-hook 'my-web-mode-hook)
 #+end_src
 
 * Packages
 ** Company mode
 #+begin_src emacs-lisp
   (add-hook 'after-init-hook 'global-company-mode)
+#+end_src
+** Flycheck
+#+begin_src emacs-lisp
+(require 'add-node-modules-path)
+
+;; Disable jshint so we can use eslint instead
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint) '(sass)))
+(flycheck-add-mode 'javascript-eslint 'js-mode)
+(flycheck-add-mode 'javascript-eslint 'js-jsx-mode)
+(setq flycheck-temp-prefix ".flycheck")
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
 #+end_src
 ** Ivy/Counsel/Swiper
 #+begin_src emacs-lisp
@@ -345,7 +363,18 @@ This is supposed to fix indentation, which it sorta does, but not perfectly.
   (after-init . org-roam-mode)
   :custom
   (org-roam-directory org-basedir)
-  (org-roam-new-file-directory (org-subdir "/notes"))
+  (org-roam-capture-templates
+   '(("d" "default" plain #'org-roam-capture--get-point
+     "%?"
+     :file-name "notes/%<%Y%m%d%H%M%S>-${slug}"
+     :head "#+TITLE: ${title}\n#+roam_tags: \n"
+     :unnarrowed t)))
+  (org-roam-dailies-capture-templates
+   '(("d" "daily" plain (function org-roam-capture--get-point)
+      ""
+      :immediate-finish t
+      :file-name "dailies/%<%Y-%m-%d>"
+      :head "#+TITLE: %<%Y-%m-%d>")))
   :bind (:map org-roam-mode-map
               (("C-c n l" . org-roam)
                ("C-c n f" . org-roam-find-file))
@@ -376,18 +405,18 @@ This is supposed to fix indentation, which it sorta does, but not perfectly.
         
             ("p" "Project" plain (function open-new-project-file)
              "#+TITLE: %^{Title}
-    ,,#+FOR: %^{For}
+    ,#+FOR: %^{For}
 
-    %^{Description}
+    ,%^{Description}
 
-    ,,* Resources
+    ,* Resources
     - %?
 
 
-    ,,* Todo
-    ,,** 
+    ,* Todo
+    ,** 
 
-    ,,* Work log / timesheet
+    ,* Work log / timesheet
 
     "
              :kill-buffer nil)
@@ -395,7 +424,10 @@ This is supposed to fix indentation, which it sorta does, but not perfectly.
             ("w" "Project work notes" entry (file+olp+datetree
                                              (lambda () (buffer-file-name (current-buffer)))
                                              "Work log / timesheet")
-             "*** TODO\n\n" :prepend t :clock-keep t :tree-type week)))
+             "*** TODO\n\n" :prepend t :clock-keep t :tree-type week)
+
+            ("d" "Finished task" entry (file+olp+datetree "~/org/gtd/gtd.org" "Done")
+             "*** \n\n" :prepend t :clock-keep t :tree-type week)))
 #+end_src
 
 *** Reload org-mode

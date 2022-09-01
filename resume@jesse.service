@@ -1,0 +1,12 @@
+[Unit]
+Description=Actions to run on system resume
+After=suspend.target
+
+[Service]
+User=%I
+Type=simple
+ExecStart=/usr/bin/xinput disable $(xinput list --id-only "G2Touch Multi-Touch by G2TSP")
+ExecPostStart=/usr/bin/sleep 1
+
+[Install]
+WantedBy=suspend.target
